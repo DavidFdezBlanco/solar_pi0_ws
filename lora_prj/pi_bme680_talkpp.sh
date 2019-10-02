@@ -31,7 +31,7 @@ fi
 # Set our next wakeup time
 if [ $MYHHMM -gt 2000 ]; then
 	# Getting dark: Set an alarm for tomorrow morning
-	talkpp -a $(date --date=tomorrow +%m%d)06002019.00
+	talkpp -a $(date --date=tomorrow +%m%d)08002019.00
 	ENDOFDAY=1
 else
 	# Set an alarm for 15 minutes from now
@@ -42,8 +42,15 @@ fi
 # Enable the alarm
 talkpp -c C0=1
 
-# Run measurement program
-sudo python read_data_bme680.py
+# read battery voltage
+battery=$(talkpp -c B)
+if (battery -lt 3.67)
+    talkpp -c E3=272    # start back up at 4.00 volts
+    talkpp -c C7=1  # set to restart
+    talkpp -c O=30  # Turn off Pi Platter in 30 seconds
+else
+    # Run measurement program
+    sudo python pi_bme680_read.py
 
 # At the end of the day, we remain powered for a bit in case someone wants to log in
 # and download some images. 
