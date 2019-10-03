@@ -1,4 +1,4 @@
-from constants import *
+from bme680_cst import *
 import math
 import time
 
