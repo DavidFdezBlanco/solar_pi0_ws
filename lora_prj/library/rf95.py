@@ -1,5 +1,7 @@
 # /usr/bin/env python
 
+from rf95_cst import *
+
 import time
 from threading import RLock
 

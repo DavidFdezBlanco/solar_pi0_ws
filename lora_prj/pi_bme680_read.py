@@ -38,7 +38,7 @@ try:
     inc = 0
     delay = 30  # delay between two measure in seconds
     n_meas = 3  # number of measures before program terminated
-    while inc < n_meas:
+    for inc in range(0,n_meas,1):
             if sensor.get_sensor_data():
                 output = '{0:.2f} C,{1:.2f} hPa,{2:.3f} %RH'.format(
                 sensor.data.temperature,
@@ -49,11 +49,10 @@ try:
                 lora.send(lora.str_to_data(output))
                 lora.wait_packet_sent()
                 print("sent!")
-                lora.set_mode_idle()
-                lora.cleanup()
-                
-        time.sleep(15)    # time.sleep(secs)
-        inc = inc + 1
+                time.sleep(delay)    # time.sleep(secs)
+
+    lora.set_mode_idle()
+    lora.cleanup()
 
 except KeyboardInterrupt:
     pass
