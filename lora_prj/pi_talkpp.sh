@@ -14,11 +14,11 @@
 
 echo beginning of script
 # Times to start and stop each date are military format: HHMM
-STARTOFDAY = 0800
-ENDOFDAY = 2000
+STARTOFDAY=0800
+ENDOFDAY=2000
 
 # Time (in seconds) between two measures
-TIMELAPSE = 900
+TIMELAPSE=900
 
 # Get the date from the RTC
 MYDATE=$(talkpp -t)
@@ -54,6 +54,7 @@ else
     echo run python bme680 script
     # Run measurement program
     sudo python pi_bme680_read.py
+fi
 
 echo end of script
 
@@ -61,4 +62,3 @@ echo shutdown Pi Platter board
 # And finally shutdown and then power off
 talkpp -c O=15
 shutdown now
-

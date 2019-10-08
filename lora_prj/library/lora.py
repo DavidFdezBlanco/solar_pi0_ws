@@ -7,7 +7,7 @@ from random import random
 import RPi.GPIO as GPIO
 import spidev
 
-from .lora_cst import *
+from lora_cst import *
 
 class ModemConfig(Enum):
     Bw125Cr45Sf128 = (0x72, 0x74, 0x04)
