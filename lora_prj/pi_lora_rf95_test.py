@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
+import rf95
 from rf95 import RF95, Bw31_25Cr48Sf512
 
 # Example, send two strings and (uncomment to) receive and print a reply
 
 # cs0, intr_pin -> gpio 22, rst_pin -> gpio 25
 lora = RF95(0, 25, 22)
-if not rf95.init():
+if not lora.init():
     print("RF95 not found")
     lora.cleanup()
     quit(1)
