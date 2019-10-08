@@ -1,2 +1,6 @@
-# solar_pi0_ws
-to do for installation of utility
+# Documentation
+description of the project --> TODO
+
+## manual install
+sudo chmod +x install.sh
+./install.sh

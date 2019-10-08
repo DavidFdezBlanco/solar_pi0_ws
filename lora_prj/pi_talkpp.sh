@@ -20,15 +20,18 @@ ENDOFDAY=2000
 # Time (in seconds) between two measures
 TIMELAPSE=900
 
+# Time (in seconds) between two battery test
+TIMELOWBATT=120
+
 # Get the date from the RTC
 MYDATE=$(talkpp -t)
 MYHHMM=${MYDATE:4:4}
 
-echo setup date from RTC
+echo "setup date from RTC"
 # Set our date from the RTC
 date $MYDATE
 
-echo setup wakeup and alarm
+echo "setup wakeup and alarm"
 # Set our next wakeup time
 if [ $MYHHMM -gt $ENDOFDAY ]; then
 	# Getting dark: Set an alarm for tomorrow morning
@@ -38,27 +41,24 @@ else
 	talkpp -d $TIMELAPSE
 fi
 
-echo alarm ON
+echo "alarm ON"
 # Enable the alarm
 talkpp -c C0=1
 
-echo battery test
+echo "battery test"
 # read battery voltage
 BATT=$(talkpp -c B)
 
-if ($BATT -lt 3.67); then
-    talkpp -c E3=272    # start back up at 4.00 volts
-    talkpp -c C7=1  # set to restart
-    talkpp -c O=30  # Turn off Pi Platter in 30 seconds
+if [ $BATT -lt 3.25 ]; then
+    talkpp -d $TIMELOWBATT  # set to restart Pi Platter in 2 mins
+    talkpp -c O=15  # Turn off Pi Platter in 30 seconds
 else
-    echo run python bme680 script
+    echo "run python script to read sensor and send data to TTN"
     # Run measurement program
     sudo python pi_bme680_read.py
 fi
 
-echo end of script
-
-echo shutdown Pi Platter board
+echo "shutdown Pi Platter board"
 # And finally shutdown and then power off
 talkpp -c O=15
 shutdown now

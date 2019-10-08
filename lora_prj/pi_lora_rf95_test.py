@@ -35,15 +35,15 @@ lora.wait_packet_sent()
 print("sent")
 
 # wait until data is available
-while not lora.available():
-    pass
+#while not lora.available():
+#    pass
     
 # receive data
-data = lora.recv()
-print (data)
-for i in data:
-    print(chr(i), end="")
-print()
+#data = lora.recv()
+#print (data)
+#for i in data:
+#    print(chr(i), end="")
+#print()
 
 lora.set_mode_idle()
 lora.cleanup()

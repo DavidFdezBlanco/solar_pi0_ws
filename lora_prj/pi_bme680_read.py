@@ -2,7 +2,7 @@
 
 import bme680
 import time
-from i2c import I2CAdapter
+import rf95
 from rf95 import RF95, Bw31_25Cr48Sf512
 
 # create rf95 object with CS0 and external interrupt on pin 25
@@ -15,13 +15,18 @@ if not lora.init(): # returns True if found
 else:
     print("RF95 LoRa mode ok")
 
+try:
+    sensor = bme680.BME680(bme680.I2C_ADDR_PRIMARY)
+except IOError:
+    sensor = bme680.BME680(bme680.I2C_ADDR_SECONDARY)
+
 # set frequency and power
 lora.set_frequency(868.5)
 lora.set_tx_power(5)
 # Custom predefined mode
 lora.set_modem_config(Bw31_25Cr48Sf512)
 
-i2c_dev = I2CAdapter()
+
 sensor = bme680.BME680(i2c_device=i2c_dev)
 
 # These oversampling settings can be tweaked to
@@ -35,7 +40,6 @@ sensor.set_filter(bme680.FILTER_SIZE_3)
 
 print("taking 3 meausres:")
 try:
-    inc = 0
     delay = 30  # delay between two measure in seconds
     n_meas = 3  # number of measures before program terminated
     for inc in range(0,n_meas,1):

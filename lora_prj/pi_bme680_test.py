@@ -28,7 +28,7 @@ try:
                 sensor.data.gas_resistance)
             print(output)
             # time.sleep(seconds) -> 5s delay
-            time.sleep(5)
+            time.sleep(10)
             
 except KeyboardInterrupt:
     pass

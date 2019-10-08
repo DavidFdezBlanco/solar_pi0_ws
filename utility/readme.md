@@ -20,7 +20,7 @@ Install of libudev - API for enumerating and introspecting local devices
 Both the source and a binary compiled under Raspbian Jessie are included.  The binary can simply be downloaded and installed in /usr/local/bin.  The source is easily compiled in the directory containing the source file.
 
     gcc -o talkpp talkpp.c -ludev
-    sudo mv talkpp /usr/local/bin
+    sudo cp talkpp /usr/local/bin
     sudo chmod 775 /usr/local/bin/talkpp
 
 ### Usage
@@ -72,7 +72,7 @@ It is important that software not open the hardware serial port, /dev/ttyACM<n>,
 Both the source and a binary compiled under Raspbian Jessie are included.  The binary can simply be downloaded and installed in /usr/local/bin.  The source is easily compiled in the directory containing the source file.
 
     gcc -o ppd ppd.c -ludev
-    sudo mv ppd /usr/local/bin
+    sudo cp ppd /usr/local/bin
     sudo chmod 775 /usr/local/bin/ppd
 
 ### Usage
