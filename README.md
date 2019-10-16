@@ -2,16 +2,16 @@
 description of the project --> TODO
 
 ## RFM95W HopeRF breakout pinout
-RFM95W      GPIO        Pin_Connector
-Vin                     17        
-GND                     25        
-EN          NC          NC
-GO          22          15
-SCK         11          23
-MISO        09          21
-MOSI        10          19
-CS          08          24
-RST         25          22
+    RFM95W      GPIO        Pin_Connector
+    Vin                     17        
+    GND                     25        
+    EN          NC          NC
+    GO          22          15
+    SCK         11          23
+    MISO        09          21
+    MOSI        10          19
+    CS          08          24
+    RST         25          22
 
 ## BME680 sensor breakout pinout
 BME680      GPIO        Pin_Connector
