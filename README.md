@@ -14,13 +14,13 @@ description of the project --> TODO
     RST         25          22
 
 ## BME680 sensor breakout pinout
-BME680      GPIO        Pin_Connector
-3V                      1
-GND                     09
-SCK         03          05        
-SDO         NC          NC
-SDI         02          03
-CS          NC          NC
+    BME680      GPIO        Pin_Connector
+    3V                      1
+    GND                     09
+    SCK         03          05        
+    SDO         NC          NC
+    SDI         02          03
+    CS          NC          NC
 
 # Manual install
 This project has been tested on Raspbian Jessie and Raspbian Stretch.
