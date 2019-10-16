@@ -31,6 +31,15 @@ echo "setup date from RTC"
 # Set our date from the RTC
 date $MYDATE
 
+# Get the power-up reason from the board (along with other status)
+STATUS=$(talkpp -c S)
+
+# Bail out of the script if we powered on because the user manually turned us on
+if [ $STATUS -ge 16 ]; then
+	# STATUS includes a power-up reason of "Button"
+	exit
+fi
+
 echo "setup wakeup and alarm"
 # Set our next wakeup time
 if [ $MYHHMM -gt $ENDOFDAY ]; then
