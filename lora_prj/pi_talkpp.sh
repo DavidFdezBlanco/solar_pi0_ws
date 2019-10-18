@@ -58,7 +58,7 @@ echo "battery test"
 # read battery voltage
 BATT=$(talkpp -c B)
 
-if [ $BATT -lt 3.25 ]; then
+if [ $BATT -lt 3.45 ]; then
     talkpp -d $TIMELOWBATT  # set to restart Pi Platter in 2 mins
     talkpp -c O=15  # Turn off Pi Platter in 30 seconds
 else
