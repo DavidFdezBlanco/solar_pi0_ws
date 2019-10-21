@@ -31,7 +31,7 @@ To install these programs, we have to open utility folder and follow the instruc
 In order to use BME680 sensor and LoRaWAN HopeRF RFM95M with Raspebbry Pi Zero W, we have to install SPI and I2C port drivers at first and, then, install BME680 and RFM95W  libraries in dist-package of our raspbian distribution.
 
     sudo apt-get update
-    sudo apt-get install i2c-tools python3-smbus python3-spidev python3-pip
+    sudo apt-get install i2c-tools python3-smbus python3-spidev python3-pip python3-setuptools
 
 Let's go to Adafruit_CircuitPython_BME680-master folder and launch
     sudo python3 setup.py install

@@ -11,7 +11,7 @@ import adafruit_bme680
 # create library object using bus I2C and SPI port
 i2c = I2C(board.SCL, board.SDA)
 bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
-spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
+spi = busio.SPI(board.SCLK, MOSI=board.MOSI, MISO=board.MISO)
 
 # change this to match the location's pressure (hPa) at sea level
 bme680.sea_level_pressure = 1013.25
@@ -34,8 +34,8 @@ app = bytearray([0xDA, 0x7E, 0x5B, 0x0C, 0xC4, 0x6A, 0xFD, 0x9E,
 
 ttn_config = TTN(devaddr, nwkey, app, country='EU')
 
-# Broadcasting on channel 0 in US Region - 903.9 MHz
-lora = TinyLoRa(spi, cs, irq, rst, ttn_config, channel=0)
+# Broadcasting on channel 0 in EU Region - 867.9 MHz
+lora = TinyLoRa(spi, cs, irq, rst, ttn_config, channel=7)
 
 # Data Packet to send to TTN
 data = bytearray(10)
