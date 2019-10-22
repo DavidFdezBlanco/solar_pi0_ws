@@ -18,7 +18,7 @@
   )
 
   (layers
-    (0 F.Cu signal hide)
+    (0 F.Cu signal)
     (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
@@ -626,7 +626,6 @@
   (segment (start 144.952 94.568) (end 143.212998 94.568) (width 0.25) (layer B.Cu) (net 1))
   (segment (start 146.222 95.838) (end 144.952 94.568) (width 0.25) (layer B.Cu) (net 1))
   (segment (start 125.902 93.298) (end 128.442 93.298) (width 0.25) (layer B.Cu) (net 2))
-  (segment (start 125.902 93.298) (end 123.846758 93.298) (width 0.25) (layer B.Cu) (net 2))
   (segment (start 123.846758 93.298) (end 123.833769 93.356311) (width 0.25) (layer B.Cu) (net 2))
   (segment (start 128.442 105.788) (end 128.652 105.998) (width 0.25) (layer B.Cu) (net 3))
   (segment (start 128.442 95.838) (end 128.442 105.788) (width 0.25) (layer B.Cu) (net 3))
@@ -674,6 +673,7 @@
   (segment (start 166.542 93.298) (end 167.906999 94.662999) (width 0.25) (layer B.Cu) (net 5))
   (segment (start 171.832 108.538) (end 171.832 105.998) (width 0.25) (layer B.Cu) (net 5))
   (segment (start 136.272 105.998) (end 136.272 108.538) (width 0.25) (layer B.Cu) (net 5))
+  (segment (start 130.982 93.298) (end 129.922 92.238) (width 0.25) (layer B.Cu) (net 5))
   (segment (start 146.432 108.538) (end 143.682 105.788) (width 0.25) (layer B.Cu) (net 12))
   (segment (start 166.752 107.268) (end 165.482 108.538) (width 0.25) (layer B.Cu) (net 12))
   (segment (start 143.682 105.788) (end 143.682 95.838) (width 0.25) (layer B.Cu) (net 12))
