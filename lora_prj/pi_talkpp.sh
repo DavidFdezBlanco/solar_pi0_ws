@@ -46,7 +46,7 @@ if [ $MYHHMM -gt $ENDOFDAY ]; then
 	# Getting dark: Set an alarm for tomorrow morning
 	talkpp -a $(date --date=tomorrow +%m%d$STARTOFDAY%Y.00)
 else
-	# Set an alarm for 15 minutes from now
+	# Set an alarm for 30 minutes from now
 	talkpp -d $TIMELAPSE
 fi
 
