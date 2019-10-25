@@ -18,10 +18,10 @@ STARTOFDAY=0800
 ENDOFDAY=2000
 
 # Time (in seconds) between two measures
-TIMELAPSE=900
+TIMELAPSE=1800		# 30 mins
 
 # Time (in seconds) between two battery test
-TIMELOWBATT=120
+TIMELOWBATT=600		# 10 mins
 
 # Get the date from the RTC
 MYDATE=$(talkpp -t)
@@ -59,12 +59,12 @@ echo "battery test"
 BATT=$(talkpp -c B)
 
 if [ $BATT -lt 3.45 ]; then
-    talkpp -d $TIMELOWBATT  # set to restart Pi Platter in 2 mins
+    talkpp -d $TIMELOWBATT  # set to restart Pi Platter in 10 mins
     talkpp -c O=15  # Turn off Pi Platter in 30 seconds
 else
     echo "run python script to read sensor and send data to TTN"
     # Run measurement program
-    sudo python pi_bme680_read.py
+    sudo python pi_bme680.py
 fi
 
 echo "shutdown Pi Platter board"
